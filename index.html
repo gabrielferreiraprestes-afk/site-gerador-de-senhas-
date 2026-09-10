@@ -1,0 +1,160 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CipherVault - Gerador de Senhas Seguras & Proteção de Dados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BARRA DE ACESSIBILIDADE -->
+    <div class="accessibility-bar" aria-label="Ferramentas de Acessibilidade">
+        <div class="container accessibility-container">
+            <span>Acessibilidade:</span>
+            <div class="accessibility-buttons">
+                <button id="btn-increase-font" title="Aumentar Fonte" aria-label="Aumentar Fonte">A+</button>
+                <button id="btn-decrease-font" title="Diminuir Fonte" aria-label="Diminuir Fonte">A-</button>
+                <button id="btn-toggle-contrast" title="Alternar Alto Contraste" aria-label="Alternar Alto Contraste">Alto Contraste</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / HERO -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="badge">Segurança da Informação de Nível Militar</span>
+                <h1>Gerador de Senhas Ultra Seguras & Blaste de Proteção</h1>
+                <p>Gere senhas criptograficamente fortes de forma instantânea em seu próprio navegador e blindes suas contas contra invasões cibernéticas e vazamento de dados.</p>
+                <div class="hero-ctas">
+                    <a href="#generator" class="btn btn-primary">Gerar Senha Agora</a>
+                    <a href="#benefits" class="btn btn-secondary">Por que a CipherVault?</a>
+                </div>
+            </div>
+            
+            <!-- FERRAMENTA GERADORA DE SENHAS -->
+            <div class="generator-card" id="generator">
+                <h2>Gerador Criptográfico</h2>
+                
+                <div class="password-display-box">
+                    <input type="text" id="password-output" readonly value="P@ssw0rd!2026" aria-label="Senha Gerada">
+                    <button id="btn-copy" class="btn-copy" title="Copiar Senha">Copiar</button>
+                </div>
+                <div id="copy-message" class="copy-message">Senha copiada com sucesso!</div>
+
+                <div class="strength-meter">
+                    <div class="strength-label">Força da Senha: <span id="strength-text">Forte</span></div>
+                    <div class="strength-bar-bg">
+                        <div id="strength-bar" class="strength-bar-fill strength-strong"></div>
+                    </div>
+                </div>
+
+                <div class="generator-controls">
+                    <div class="control-group">
+                        <label for="length-slider">Tamanho: <span id="length-value">16</span> caracteres</label>
+                        <input type="range" id="length-slider" min="8" max="32" value="16">
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="chk-uppercase" checked>
+                            <span class="checkmark"></span>
+                            Letras Maiúsculas (A-Z)
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="chk-lowercase" checked>
+                            <span class="checkmark"></span>
+                            Letras Minúsculas (a-z)
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="chk-numbers" checked>
+                            <span class="checkmark"></span>
+                            Números (0-9)
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="chk-symbols" checked>
+                            <span class="checkmark"></span>
+                            Símbolos Especial (!@#$)
+                        </label>
+                    </div>
+
+                    <button id="btn-generate" class="btn btn-primary btn-full">Gerar Nova Senha</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEÇÃO DE BENEFÍCIOS -->
+    <section class="benefits-section" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por que a CipherVault é a escolha ideal para sua segurança?</h2>
+                <p>Tecnologia avançada de proteção de dados desenvolvida com foco em privacidade e facilidade de uso.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">🔒</div>
+                    <h3>Processamento Local</h3>
+                    <p>Suas senhas são geradas inteiramente no seu navegador via algoritmo Web Crypto API. Nenhum dado é enviado para servidores externos.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Zero Logs & Zero Rastreio</h3>
+                    <p>Sua privacidade é nossa prioridade absoluta. Não armazenamos, rastreamos ou mantemos histórico das senhas criadas.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">⚡</div>
+                    <h3>Entropia Máxima</h3>
+                    <p>Garantimos padrões matemáticos que protegem suas credenciais contra ataques de força bruta e dicionário.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARROSSEL DE DEPOIMENTOS (RENDERIZADO VIA JS) -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Confiado por Especialistas de Segurança</h2>
+                <p>Veja o que líderes da indústria de TI dizem sobre nossas soluções de proteção de dados.</p>
+            </div>
+            <div class="carousel-container">
+                <div id="carousel-track" class="carousel-track">
+                    <!-- Injetado dinamicamente pelo script.js -->
+                </div>
+                <div class="carousel-controls">
+                    <button id="prev-btn" class="carousel-btn" aria-label="Depoimento Anterior">‹</button>
+                    <button id="next-btn" class="carousel-btn" aria-label="Próximo Depoimento">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACORDEÃO FAQ (RENDERIZADO VIA JS) -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas dúvidas sobre o gerador de senhas e a segurança da informação.</p>
+            </div>
+            <div id="faq-accordion" class="accordion-container">
+                <!-- Injetado dinamicamente pelo script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 CipherVault - Segurança da Informação e Proteção de Dados. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
